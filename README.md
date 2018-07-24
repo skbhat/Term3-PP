@@ -22,6 +22,9 @@ Behavior of the ego vehicle is decided based on the closest neighbors it has.  I
 Code is entirely written in src/main.cpp.  The five neighbors are computed between lines 261 to 302.  The gap value with these five neighbors is compute between lines 314 to 318.  The possibility of going left or right is decided in lines 321 to 326.  Between lines 330 to 348 it decides whether to continue, decelerate or change lane.  I have used the work [Darien](https://github.com/darienmt/CarND-Path-Planning-Project-P1) to obtain actual trajectory.
 
 
+## Reflection
+The above algorithm manages to navigate the car successfully without violating any rules.  One obvious limitation is that it cannot decide on shifting two lanes if the adjacent lane has a neighbor ahead with a gap value lesser than that of the current lane.  Moreover, due to the absence of state transition model, ego vehicle cannot decide to decelerate and change the lane whenever it is appropriate to do so.
+
 # Original README content
 Self-Driving Car Engineer Nanodegree Program
    
