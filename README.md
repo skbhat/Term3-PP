@@ -17,10 +17,10 @@ Behavior of the ego vehicle is decided based on the closest neighbors it has.  I
   <img width="300" src="Neighbors.svg">
 </p>
 
-It computes the 'gap' between ego vehicle and these neighbors based on the distance and relative velocity.  For a neighbor ahead of ego vehicle, the gap value increases with the neighbor's speed.  For a neighbor behind ego vehicle the gap decreases with speed of the neighbor (and vice-versa).  With these gap values at hand, the algorithm decides the behavior as follows.
+The behavior planning algorithm computes the 'gap' between ego vehicle and each neighbor based on the distance and relative velocity.  For a neighbor ahead of ego vehicle, the gap value increases with the neighbor's speed.  For a neighbor behind ego vehicle the gap decreases with speed of the neighbor (and vice-versa).  With these gap values at hand, the algorithm decides the behavior as follows.
 
-1. If the gap value to the right lane is above a threshold then we set can_go_right=True, otherwise can_go_right=False.  Similarly can_go_left is set.
-2. If the gap value with the neighbor ahead is above a threshold then continue.
+1. If the gap value to the right neighbors is above a threshold then we set can_go_right=True, otherwise can_go_right=False.  Similarly can_go_left is set.
+2. If the gap value with the neighbor ahead is above a threshold then continue in the same lane.
 3. If the gap value with the neighbor ahead is below a threshold then check can_go_right and can_go_left.  If possible switch to the side which has highest gap value.
 4. If the gap value with the neighbor ahead is below a threshold and switching is not possible then reduce the speed accordingly.
 
