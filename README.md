@@ -11,7 +11,7 @@ I have used simpler heuristical approach without using cost functions on state t
 
 ## Overview
 
-![Neighbors](Neighbors.svg)
+![Neighbors](Neighbors.svg | width = 500)
 
 Behavior of the ego vehicle is decided based on the closest neighbors it has.  It considers 5 neighbors.  Closest car ahead in the same lane, closest two cars ahead in the adjacent lanes and closest two cars behind in the two adjacent lanes.  They are shown in the above image.
 
