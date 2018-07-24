@@ -11,6 +11,8 @@ I have used simpler heuristical approach without using cost functions on state t
 
 ## Overview
 
+![Neighbors](Neighbors.svg)
+
 Behavior of the ego vehicle is decided based on the closest neighbors it has.  It considers 5 neighbors.  Closest car ahead in the same lane, closest two cars ahead in the adjacent lanes and closest two cars behind in the two adjacent lanes.  It computes the 'gap' between ego vehicle and these neighbors based on the distance and relative velocity.  For a neighbor ahead of ego vehicle, the gap value increases with the neighbor's speed.  For a neighbor behind ego vehicle the gap decreases with speed of the neighbor (and vice-versa).  With these gap values at hand, the algorithm decides the behavior as follows.
 
 1. If the gap value to the right lane is above a threshold then we set can_go_right=True, otherwise can_go_right=False.  Similarly can_go_left is set.
