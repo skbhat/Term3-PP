@@ -3,6 +3,18 @@
 
 ![Completed](complete.jpg)
 
+## Introduction and acknowledgement
+
+The aim of this project is to compute path planning information in a simulated environment in which we have accurate waypoint and sensorfusion information.  In addition to the collision avoidance the vehicle has to comply with the maximum velocity, acceleration and jerk constraints.  I should not cross lane markings except during lane change.
+
+I have used simpler heuristical approach without using cost functions on state transition explicitly.  For invoking spline and deriving x,y values of the path I have used the work of [Darien](https://github.com/darienmt/CarND-Path-Planning-Project-P1).
+
+## Overview
+
+
+
+
+
 # Original README content
 Self-Driving Car Engineer Nanodegree Program
    

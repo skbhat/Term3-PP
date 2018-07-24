@@ -300,9 +300,7 @@ int main() {
 					}
           		}
           	}
-          	bool car_ahead = s_f>0 && s_f-head_s<30;
-          	bool car_left = (s_bl>0 && head_s-s_bl<30) || (s_fl>0 && s_fl-head_s<30);
-          	bool car_righ = (s_br>0 && head_s-s_br<30) || (s_fr>0 && s_fr-head_s<30);
+
           	bool can_go_left = false;
           	bool can_go_right = false;
           	double head_speed = car_speed;
