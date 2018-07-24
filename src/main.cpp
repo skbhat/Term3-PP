@@ -301,8 +301,7 @@ int main() {
           		}
           	}
 
-          	bool can_go_left = false;
-          	bool can_go_right = false;
+
           	double head_speed = car_speed;
           	if ( head_size >= 2 ){
                 double x1 = previous_path_x[head_size - 1];
@@ -311,19 +310,16 @@ int main() {
                 double y0 = previous_path_y[head_size - 2];
                 head_speed = sqrt((x1-x0)*(x1-x0)+(y1-y0)*(y1-y0))*sfreq;
           	}
-          	double left_gap =  std::min((v_fl-head_speed)*t_head + s_fl-head_s, (head_speed-v_bl)*t_head + head_s-s_bl);
-          	double right_gap = std::min((v_fr-head_speed)*t_head + s_fr-head_s, (head_speed-v_br)*t_head + head_s-s_br);
+
           	double front_gap = (v_f-head_speed)*t_head + s_f-head_s;
-          	//cout<<"Values: "<<v_f<<" "<<head_speed<<" "<<t_head<<" "<<s_f<<"\n";
-
-
-
           	double left_gap_f = (v_fl-head_speed)*t_head + s_fl-head_s;
           	double left_gap_b = (head_speed-v_bl)*t_head + head_s-s_bl;
           	double right_gap_f = (v_fr-head_speed)*t_head + s_fr-head_s;
           	double right_gap_b = (head_speed-v_br)*t_head + head_s-s_br;
           	cout<<" Values:"<<left_gap_b<<" "<<left_gap_f<<" "<<right_gap_b<<" "<<right_gap_f<<" "<<front_gap<<"\n";
 
+          	bool can_go_left = false;
+          	bool can_go_right = false;
           	if(head_lane>0 && left_gap_b>15 && left_gap_f>15)
 			   can_go_left = true;
 			if(head_lane<2 && right_gap_b>15 && right_gap_f>15)
@@ -331,7 +327,7 @@ int main() {
 
 
             // Behavioral planning
-          	double speed_diff = 0;
+          	 double speed_diff = 0;
 			 const double MAX_ACC = .224;
 			 if ( front_gap<40 ) { // Car ahead
 

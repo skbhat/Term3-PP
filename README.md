@@ -11,8 +11,15 @@ I have used simpler heuristical approach without using cost functions on state t
 
 ## Overview
 
+Behavior of the ego vehicle is decided based on the closest neighbors it has.  It considers 5 neighbors.  Closest car ahead in the same lane, closest two cars ahead in the adjacent lanes and closest two cars behind in the two adjacent lanes.  It computes the 'gap' between ego vehicle and these neighbors based on the distance and relative velocity.  For a neighbor ahead of ego vehicle, the gap value increases with the neighbor's speed.  For a neighbor behind ego vehicle the gap decreases with speed of the neighbor (and vice-versa).  With these gap values at hand, the algorithm decides the behavior as follows.
 
+1. If the gap value to the right lane is above a threshold then we set can_go_right=True, otherwise can_go_right=False.  Similarly can_go_left is set.
+2. If the gap value with the neighbor ahead is above a threshold then continue.
+3. If the gap value with the neighbor ahead is below a threshold then check can_go_right and can_go_left.  If possible switch to the side which has highest gap value.
+4. If the gap value with the neighbor ahead is below a threshold and switching is not possible then reduce the speed accordingly.
 
+## Code description
+Code is entirely written in src/main.cpp.  The five neighbors are computed between lines 261 to 302.  The gap value with these five neighbors is compute between lines 314 to 318.  The possibility of going left or right is decided in lines 321 to 326.  Between lines 330 to 348 it decides whether to continue, decelerate or change lane.  I have used the work [Darien](https://github.com/darienmt/CarND-Path-Planning-Project-P1) to obtain actual trajectory.
 
 
 # Original README content
