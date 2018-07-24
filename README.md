@@ -1,4 +1,9 @@
-# CarND-Path-Planning-Project
+# Udacity Self-Driving Car Engineer Nanodegree
+# Path Planning Project
+
+![Completed](complete.jpg)
+
+# Original README content
 Self-Driving Car Engineer Nanodegree Program
    
 ### Simulator.
